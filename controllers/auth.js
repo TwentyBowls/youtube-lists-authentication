@@ -1,5 +1,5 @@
 const passport = require('passport')
-const validator = require('validator')
+const validator = require('validator') // what is this
 const User = require('../models/User')
 
  exports.getLogin = (req, res) => {
@@ -17,7 +17,7 @@ const User = require('../models/User')
     if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
   
     if (validationErrors.length) {
-      req.flash('errors', validationErrors)
+      req.flash('errors', validationErrors) // 
       return res.redirect('/login')
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
