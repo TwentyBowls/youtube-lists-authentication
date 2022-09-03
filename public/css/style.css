@@ -1,5 +1,13 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 h1{
     color: red;
+
 }
 .completed{
     text-decoration: line-through;
@@ -7,4 +15,96 @@ h1{
 }
 .not{
     text-decoration: underline;
+}
+
+hr {
+    background-color: #464646;
+    height: 1px;
+    border: none;
+}
+
+#navbar {
+    background-color: #212121;
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.menu-bars {
+    margin-left: 2rem;
+    font-size: 2rem;
+    color: #fff;
+}
+
+#nav-menu {
+    background-color: #212121;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top:0;
+    left: -100%;
+    transition: 850ms;
+}
+
+#nav-menu.active{
+    left: 0;
+    transition: 350ms;
+}
+
+.nav-text {
+    display: flex;
+    justify-content: start;
+    list-style: none;
+    height: 50px;
+    padding: 1rem;
+}
+
+.nav-text a {
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+.nav-text:hover{
+    background-color: rgba(144,144,144,0.219);
+    cursor: pointer;
+}
+
+.nav-menu-items{
+    width: 100%;
+}
+
+/*if want to add and change icon sizes
+.nav-icon{
+    padding-right: 1rem;
+    color:#909090;
+*/
+
+#navbar-toggle{
+    background-color: #212121;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#navbar-toggle h1 {
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.fa-bars{
+    color:#fff;
+}
+
+.nav-section{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

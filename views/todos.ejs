@@ -6,18 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <!--trying to create a nav bar-->
+    <div id="navbar">
+        <a href ='#' class="menu-bars" id="show-menu">
+            <i class = 'fas fa-bars'></i>
+        </a>
+    </div>
+
+    <nav id="nav-menu">
+        <ul class = 'nav-menu-items'>
+            <div id="navbar-toggle">
+                <a href="#" class="menu-bars" id="hide-menu">
+                    <i class ='fas fa-bars nav-icon'></i>
+                </a>
+                <a href ='#'><h1>To do/ Video Youtube...</h1></a>
+            </div>
+            <hr />
+            <div class ='nav-section'>
+                <li class ='nav-text'><a href="#">Home</a></li>
+                <li class ='nav-text'><a href="#">Logout/a></li>
+            </div>
+        </ul>
+    </nav>
+
     <h1>Todos</h1>
     <ul>
     <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
+        <li class='todoItem' data-id='<%=el._id%>'>
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+            <span class='del'> Delete </span>
+        </li>
     <% }) %>    
     </ul>
-
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
     <form action="/todos/createTodo" method='POST'>

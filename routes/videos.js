@@ -3,7 +3,7 @@ const router = express.Router()
 const videosController = require('../controllers/videos') 
 const { ensureAuth } = require('../middleware/auth')
 
-router.get('/', /*ensureAuth ,*/ videosController.getVideos)
+router.get('/', ensureAuth , videosController.getVideos)
 
 router.post('/createVideo', videosController.createVideo)
 

@@ -3,7 +3,7 @@ const Video = require('../models/Video')
 
 module.exports = {
     // GET request for videos
-    getVideos: async (req,res) => {
+    getVideos: async (req, res) => {
         // console.log(req.user)
         // try {
         //     const todoItems = await Todo.find({userId:req.user.id})
@@ -12,26 +12,31 @@ module.exports = {
         // } catch(err) {
         //     console.log(err)
         // }
-        res.render('videos.ejs')
+        /* const videoData = Video.find({ userId: req.user.id }) */
+        res.render('videos.ejs'/*, {data: videoData} */)
     },
     // POST request for videos
     createVideo: async (req, res) => {
-        try {
-            const videoDetails = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=${API_KEY}&part=contentDetails,statistics`)
-            await Video.create({
-                YouTubeID: req.body.videoID, 
-                title: videoDetails.videos.title, 
-                published: videoDetails.videos.publishedAt, 
-                views: videoDetails.videos.statistics.viewCount, 
-                likes: videoDetails.videos.statistics.likes,
-                runtime: videoDetails,
-                commentCount: videoDetails,
-                userId: req.user.id
-            })
-            console.log('Video has been added!')
-            res.redirect('/todos')
-        } catch(err) {
-            console.log(err)
+        createVideo =  async (req, res) => {
+            try {
+                let videoDetails = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=${process.env.API_KEY}&part=contentDetails,statistics,snippet`);
+                videoDetails = await videoDetails.json()
+                //await Video.create({
+                await console.log(    {
+                   // YouTubeID: req.body.videoID, 
+                    title: videoDetails.items.snippet,
+                    published: videoDetails.items.contentDetails, 
+                    views: videoDetails.items.statistics, 
+                    likes: videoDetails.items.statistics,
+                    runtime: videoDetails.contentDetails,
+                    // commentCount: videoDetails.items.statistics.comments,
+                    // userId: req.user.id
+                })
+                console.log('Video has been added!')
+                // res.redirect('/todos')
+            } catch(err) {
+                console.log(err)
+            }
         }
     },
     // DELETE request for videos
