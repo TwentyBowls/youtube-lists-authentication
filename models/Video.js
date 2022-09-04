@@ -33,7 +33,7 @@ const VideoSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  comments: { // NUMBER of comments, not comment content
+  commentCount: { // number of comments
     type: Number,
     required: true
   },
@@ -45,6 +45,6 @@ const VideoSchema = new mongoose.Schema({
     type: String,
     required: true
   }
-})
+}, /*{ collection: 'videolist' }*/)
 
 module.exports = mongoose.model('Video', VideoSchema)

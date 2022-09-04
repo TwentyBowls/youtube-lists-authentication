@@ -14,17 +14,25 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Videos:</h1>
-    <ul>
-
-    </ul>
-
-    <h2>Something something</h2>
-
-    <!-- <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form> -->
+    <h1>Add A Video</h1>
+    <form action="videos/createVideo" method="POST">
+        <input type="text" name="url">
+        <button>Add</button>
+    </form>
+    <h1>Video List:</h1>
+    <section class="video-container">
+        <div class="video" id="whateverTheVideoId will be">
+            <h3 class="video__title">Video Title Here</h3>
+            <h4 class="video__channel">Channel Name here</h4>
+            <img class="video__thumbnail" src="#" alt="">
+            <p class="video__desc">Video Description</p>
+            <p class="video__metrics">Views:<span class="video__view-count">0</span></p>
+            <p class="video__metrics">Likes:<span class="video__like-count">1</span></p>
+            <p class="video__metrics">Comments:<span class="video__comment-count">2</span></p>
+            <p class="video__metrics">Published On:<span class="video__publish-date">Jan 1, 1920</span></p>
+            <h4>Video ID Here</h4>
+        </div>
+    </section>
 
     <a href="/logout">Logout</a>
 

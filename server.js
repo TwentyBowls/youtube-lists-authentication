@@ -42,7 +42,7 @@ app.use(flash()) // what is this?
   
 app.use('/', mainRoutes)  // this is a route for main
 app.use('/todos', todoRoutes) // this is a router for todo
-app.use('/videos', videoRoutes)
+app.use('/videos', videoRoutes) // router for videos
 
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!') // this is a funny
