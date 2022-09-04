@@ -13,13 +13,13 @@ module.exports = {
         //     console.log(err)
         // }
         /* const videoData = Video.find({ userId: req.user.id }) */
-        let videos = await Video.find({ userId: req.user.id })
-        // console.log(videos)
-        res.render('videos.ejs'/*, {data: videoData} */)
+        let videoData = await Video.find({ userId: req.user.id })
+        //  console.log(videoData)
+        res.render('videos.ejs', {data: videoData})
     },
     // POST request for videos
     createVideo: async (req, res) => {
-        // console.log(req.user._id)
+        console.log(typeof req.user._id)
         try {
             let videoURL = new URL(req.body.url) // get video url
             let videoID = url.parse(req.body.url, true).query.v // get id of video
@@ -28,20 +28,21 @@ module.exports = {
             if (videoURL.hostname === 'www.youtube.com' && videoID ) { // check that the url is from youtube.com || add support for m.youtube.com later?
                 let response = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoID}&key=${process.env.API_KEY}&part=contentDetails,statistics,snippet`);
                 videoDetails = await response.json()
-                
-                Video.create({
+                let videoObj = {
                     YouTubeID: videoID,
                     title: videoDetails.items[0].snippet.title,
                     channel: videoDetails.items[0].snippet.channelId,
                     thumbnail: videoDetails.items[0].snippet.thumbnails.high.url,
-                    description: videoDetails.items[0].snippet.description,
+                    description: videoDetails.items[0].snippet.description.slice(0, 100), // snip description if it's too long
                     published: videoDetails.items[0].snippet.publishedAt,
                     views: videoDetails.items[0].statistics.viewCount, 
                     likes: videoDetails.items[0].statistics.likeCount,
                     commentCount: videoDetails.items[0].statistics.commentCount,
                     runtime: videoDetails.items[0].contentDetails,
                     userId: req.user._id,
-                }, () => console.log(`New Video Created For: ${videoURL}`)) // callback function to print database entry confirmation
+                }
+                console.log(videoObj)
+                Video.create(videoObj, () => console.log(`New Video Created For: ${videoURL}`)) // callback function to print database entry confirmation
             } else {
                 console.log(`invalid youtube video`)
             }
