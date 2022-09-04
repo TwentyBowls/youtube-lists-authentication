@@ -1,39 +1,47 @@
 const mongoose = require('mongoose')
 
 const VideoSchema = new mongoose.Schema({
-  YouTubeID: {
+  YouTubeID: { // id for the video that goes into the url
     type: String,
     required: true
   },
-  title: {
+  title: { // video title
     type: String,
     required: true
   },
-  thumbnail: {
-  type: String,
-  required: true
-},
-  published: {
-  type: Date,
-  required: true
+  channel: { // video channel name
+    type: String,
+    required: true
   },
-  views: {
-  type: Number,
-  required: true,
+  thumbnail: { // video thumbnail
+    type: String,
+    required: true
   },
-  likes: {
-  type: Number,
-  required: true
+  description: { // video description
+    type: String,
+    required: true
   },
-  runtime: {
-    type: Number, // I think???
-    required:true
+  published: { // publish date
+    type: Date,
+    required: true
   },
-  comments: {
+  views: { // number of views
+    type: Number,
+    required: true,
+  },
+  likes: { // number of likes
     type: Number,
     required: true
   },
-    userId: {
+  comments: { // NUMBER of comments, not comment content
+    type: Number,
+    required: true
+  },
+  runtime: { // not sure what this is
+    type: Object, // I think???
+    required: true
+  },
+  userId: { // id of associated user in our app, not youtube uploader
     type: String,
     required: true
   }
