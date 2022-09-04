@@ -17,27 +17,28 @@ module.exports = {
     },
     // POST request for videos
     createVideo: async (req, res) => {
-        createVideo =  async (req, res) => {
-            try {
-                let videoDetails = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=${process.env.API_KEY}&part=contentDetails,statistics,snippet`);
-                videoDetails = await videoDetails.json()
-                //await Video.create({
-                await console.log(    {
-                   // YouTubeID: req.body.videoID, 
-                    title: videoDetails.items.snippet,
-                    published: videoDetails.items.contentDetails, 
-                    views: videoDetails.items.statistics, 
-                    likes: videoDetails.items.statistics,
-                    runtime: videoDetails.contentDetails,
-                    // commentCount: videoDetails.items.statistics.comments,
-                    // userId: req.user.id
-                })
-                console.log('Video has been added!')
-                // res.redirect('/todos')
-            } catch(err) {
-                console.log(err)
-            }
-        }
+        console.log('New Video Created!')
+        // createVideo =  async (req, res) => {
+        //     try {
+        //         let videoDetails = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=${process.env.API_KEY}&part=contentDetails,statistics,snippet`);
+        //         videoDetails = await videoDetails.json()
+        //         //await Video.create({
+        //         await console.log(    {
+        //            // YouTubeID: req.body.videoID, 
+        //             title: videoDetails.items.snippet,
+        //             published: videoDetails.items.contentDetails, 
+        //             views: videoDetails.items.statistics, 
+        //             likes: videoDetails.items.statistics,
+        //             runtime: videoDetails.contentDetails,
+        //             // commentCount: videoDetails.items.statistics.comments,
+        //             // userId: req.user.id
+        //         })
+        //         console.log('Video has been added!')
+        //         // res.redirect('/todos')
+        //     } catch(err) {
+        //         console.log(err)
+        //     }
+        // }
     },
     // DELETE request for videos
     deleteVideo: async (req, res) => {
