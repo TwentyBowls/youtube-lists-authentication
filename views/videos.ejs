@@ -14,31 +14,41 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Add A Video</h1>
-    <form action="videos/createVideo" method="POST">
-        <input type="text" name="url">
-        <button>Add</button>
-    </form>
-    <h1>Video List:</h1>
-    <% data.forEach(video => {%>
-        <section class="video-container">
-            <div class="video" 
+    <header class="header">
+        <nav class="nav row">
+            <h2 class="welcome">Welcome, User!</h2>
+            <a href="/logout" ><button class="logout-btn">Logout</button></a>
+        </nav>
+    </header>
+    <main class="container">
+
+        <h1>Add A Video</h1>
+        <form action="videos/createVideo" method="POST">
+            <input type="text" name="url" placehold="youtube url">
+            <button>Add Video</button>
+        </form>
+        <h1>Video List:</h1>
+        <% data.forEach(video => {%>
+            <section class="videos-container">
+                <div class="video-card" 
                 data-youtube-id="<%= video.YouTubeID%>" 
                 id="<%= video.userId%>">
-                <h3 class="video__title"><%= video.title%></h3>
-                <h4 class="video__channel"><%= video.channel%></h4>
-                <img class="video__thumbnail" src="<%= video.thumbnail%>" alt="">
-                <p class="video__desc"><%= video.description%></p>
-                <p class="video__metrics">Views:<span class="video__view-count"><%= video.views%></span></p>
-                <p class="video__metrics">Likes:<span class="video__like-count"><%= video.likes%></span></p>
-                <p class="video__metrics">Comments:<span class="video__comment-count"><%= video.commentCount%></span></p>
-                <p class="video__metrics">Published On:<span class="video__publish-date"><%= video.published%></span></p>
+                <h3 class="video-card__title"><%= video.title%></h3>
+                <h4 class="video-card__channel"><%= video.channel%></h4>
+                <a href="https://www.youtube.com/watch?v=<%=video.YouTubeID%>">
+                    <img class="video-card__thumbnail" src="<%= video.thumbnail%>" alt="">
+                </a>
+                <p class="video-card__desc"><%= video.description%></p>
+                <p class="video-card__metrics">Views:<span class="video__view-count"><%= video.views%></span></p>
+                <p class="video-card__metrics">Likes:<span class="video__like-count"><%= video.likes%></span></p>
+                <p class="video-card__metrics">Comments:<span class="video__comment-count"><%= video.commentCount%></span></p>
+                <p class="video-card__metrics">Published On:<span class="video__publish-date"><%= video.published%></span></p>
             </div>
         </section>
-    <% })%>
+        <% })%>
+    </main>
 
-    <a href="/logout">Logout</a>
-    <%= data %>
+
     <script src="js/main.js"></script>
 </body>
 </html>
