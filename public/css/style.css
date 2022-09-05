@@ -29,17 +29,19 @@ h2 {
 
 h3 {
     font-size: 1.6rem;
+    font-weight: 500;
     /* margin-bottom: 1em; */
 }
 
 h4 {
-    font-size: 1.5rem;
+    font-size: 0.9rem;
+    color: #7b849c;
     /* margin-bottom: 1em; */
 }
 
 p {
-    line-height: 1.5em;
-    font-size: 1.1em;
+    font-size: 1.1rem;
+    line-height: 1.3em;
 }
 
 button {
@@ -47,10 +49,20 @@ button {
     border: 1px solid #2a2e34;
     padding: 0.6em 1.6em;
     font-family: 'Roboto', sans-serif;  
-    font-size: 1.2em;
+    font-size: 1.2rem;
     color:  #aeb6ca;
     border-radius: 0.5em;
     cursor: pointer;
+}
+
+input {
+    font-size: 1.2rem;
+    padding: 0.6em 0.5em;
+    background: #1c1e22;
+    font-family: 'Roboto', sans-serif;
+    border: 0;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
 }
 
 /********************************
@@ -64,11 +76,12 @@ button {
     width: min(1200px, 70%);
     margin: 0 auto;
 }
+
 .header {
     background: #1c1e22;
     border-bottom: 1px solid #454a56;
+    /* allow this to stick to the top of the page */
 }
-
 
 .nav {
     align-items: space-between;
@@ -77,6 +90,89 @@ button {
     gap: 2em;
     align-items: center;
 }
+
+.form-container {
+    margin-top: 3em;
+    width: 100%;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #454a56;
+    padding-bottom: 1em;
+    align-items: center;
+}
+
+.form-title {
+    margin-right: 1em;
+}
+
+.video-form {
+    flex: 1;
+    display: flex;
+    gap: 1em;
+}
+
+.video-form__input {
+    flex: 1;
+}
+
+.videos-container__title {
+    margin: 2em 0 1em;
+}
+
+.video {
+    margin-bottom: 1em;
+    padding: 1.2em;
+    background: #323741;
+    border: 1px solid #434854;
+    border-radius: 0.5em;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.video__thumbnail-container {
+    /* width: 35%; */
+    flex: 1;
+}
+
+.video__thumbnail {
+    width: 100%;
+}
+
+.video__data {
+    /* width: 60%; */
+    flex: 3;
+}
+
+.video__title {
+    color: #76a9ff;
+}
+.video__channel {
+    margin: 0.5em 0 1em;
+}
+
+.video__metrics {
+    font-weight: 500;
+    color: #9198ac;
+    /* color: #717786; */
+}
+
+.video__metrics__row {
+    gap: 2em;
+    margin: 0.5em 0 0.5em;
+    flex-wrap:wrap;
+}
+
+.fa-regular {
+    color: #76a9ff;
+    margin-right: 0.3em;
+}
+
+/* .video__publish-date {
+    color: #fff;
+    font-size: 0.9rem;
+} */
+
+/* ***************** */
 
 .completed{
     text-decoration: line-through;

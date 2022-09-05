@@ -9,6 +9,14 @@
 
     <title>Lists</title>
 
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <!-- external CSS links -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
@@ -21,31 +29,59 @@
         </nav>
     </header>
     <main class="container">
-
-        <h1>Add A Video</h1>
-        <form action="videos/createVideo" method="POST">
-            <input type="text" name="url" placehold="youtube url">
-            <button>Add Video</button>
-        </form>
-        <h1>Video List:</h1>
-        <% data.forEach(video => {%>
-            <section class="videos-container">
-                <div class="video-card" 
-                data-youtube-id="<%= video.YouTubeID%>" 
-                id="<%= video.userId%>">
-                <h3 class="video-card__title"><%= video.title%></h3>
-                <h4 class="video-card__channel"><%= video.channel%></h4>
-                <a href="https://www.youtube.com/watch?v=<%=video.YouTubeID%>">
-                    <img class="video-card__thumbnail" src="<%= video.thumbnail%>" alt="">
-                </a>
-                <p class="video-card__desc"><%= video.description%></p>
-                <p class="video-card__metrics">Views:<span class="video__view-count"><%= video.views%></span></p>
-                <p class="video-card__metrics">Likes:<span class="video__like-count"><%= video.likes%></span></p>
-                <p class="video-card__metrics">Comments:<span class="video__comment-count"><%= video.commentCount%></span></p>
-                <p class="video-card__metrics">Published On:<span class="video__publish-date"><%= video.published%></span></p>
-            </div>
+        <section class="form-container row">
+            <h1 class="form-title">Add A Video:</h1>
+            <form class="video-form"action="videos/createVideo" method="POST">
+                <input class="video-form__input"type="text" name="url" placeholder="Youtube url here...">
+                <button class="video-form__submit">Add Video</button>
+            </form>
         </section>
-        <% })%>
+
+        <section class="videos-container">
+            <h1 class="videos-container__title">Video List:</h1>
+            <% data.forEach(video => {%>
+                
+                <div class="video row" 
+                    data-youtube-id="<%= video.YouTubeID%>" 
+                    id="<%= video.userId%>">
+
+                    <div class="video__thumbnail-container">
+                        <a href="https://www.youtube.com/watch?v=<%=video.YouTubeID%>">
+                            <img class="video__thumbnail" src="<%= video.thumbnail%>" alt="">
+                        </a>
+                    </div>  
+
+                    <div class="video__data">
+                        <div class="video__text">
+                            <h3 class="video__title"><%= video.title%></h3>
+                            <h4 class="video__channel">Uploaded By: <%= video.channel%></h4>
+                            <p class="video__desc"><%= video.description%></p>
+                        </div>
+
+                        <div class="video__metrics">
+                            <div class="row video__metrics__row">
+                                <p>
+                                    <i class="fa-regular fa-eye"></i>
+                                    <span class="video__view-count"><%= video.views.toLocaleString("en-US")%></span>
+                                </p>
+                                <p>
+                                    <i class="fa-regular fa-thumbs-up"></i>
+                                    <span class="video__like-count"><%= video.likes.toLocaleString("en-US")%></span>
+                                </p>
+                                <p>
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span class="video__comment-count"><%= video.commentCount.toLocaleString("en-US")%></span>
+                                </p>
+                                <p>
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <span class="video__publish-date"><%= video.published.toDateString()%></span>
+                                </p> 
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            <% })%>
+        </section>
     </main>
 
 
