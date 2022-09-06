@@ -37,10 +37,10 @@ const VideoSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  runtime: { // not sure what this is
-    type: Object, // I think???
-    required: true
-  },
+  // runtime: { // not sure what this is
+  //   type: Object, // I think???
+  //   required: true
+  // },
   userId: { // id of associated user in our app, not youtube uploader
     type: String,
     required: true

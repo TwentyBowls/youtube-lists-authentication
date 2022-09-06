@@ -44,6 +44,6 @@ app.use('/', mainRoutes)  // this is a route for main
 app.use('/todos', todoRoutes) // this is a router for todo
 app.use('/videos', videoRoutes) // router for videos
 
-app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!') // this is a funny
+app.listen(process.env.PORT || 3000, ()=>{
+    console.log(`Server is running on ${process.env.PORT}, you better catch it!`) // this is a funny
 })    
