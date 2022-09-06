@@ -3,7 +3,7 @@ const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
 
 Array.from(deleteBtn).forEach((el)=>{
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', deleteVideo)
 })
 
 Array.from(todoItem).forEach((el)=>{
@@ -14,16 +14,17 @@ Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
-async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+async function deleteVideo(){
+    const videoId = this.parentNode.attributes[1].value
     try{
-        const response = await fetch('todos/deleteTodo', {
+        const response = await fetch('videos/deleteVideo', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'todoIdFromJSFile': videoId
             })
         })
+        console.log(videoId)
         const data = await response.json()
         console.log(data)
         location.reload()

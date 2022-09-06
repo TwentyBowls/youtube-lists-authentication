@@ -42,7 +42,7 @@
             <% data.forEach(video => {%>
                 
                 <div class="video row" 
-                    data-youtube-id="<%= video.YouTubeID%>" 
+                    dataYoutubeID="<%= video.YouTubeID%>" 
                     id="<%= video.userId%>">
 
                     <div class="video__thumbnail-container">
@@ -76,8 +76,11 @@
                                     <i class="fa-regular fa-calendar"></i>
                                     <span class="video__publish-date"><%= video.published.toDateString()%></span>
                                 </p> 
-                            </div>
-                        </div>                    
+                            </div>                    
+                        </div>
+                    </div>
+                    <div class="del">
+                        <button>DELETE VIDEO</button>
                     </div>
                 </div>
             <% })%>
