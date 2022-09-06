@@ -1,22 +1,16 @@
 # Introduction
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
-
----
-
-> Be sure to add that lovely star 😀 and fork it for your own copy
-
----
+A YouTube Video Management App that is built using MVC Architecture. Individuals can sign up, customize & personalize the app. Each user can create a unique playlist of YouTube videos that they desire to view at a later time. Using Google's YouTube API, the official thumbnail image, view count, likes, comments, and date added are displayed for each individual video on the list. 
 
 # Objectives
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+- A simple, yet effective app that allows individuals to keep track of YouTube videos of interest that they would like to watch at a future date. The app implements logins and the MVC framework concept.   
 
 ---
 
 # Who is this for? 
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features.
 
 ---
 
@@ -32,13 +26,12 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 
 ---
 
-# Things to add
+# Things To Improve
 
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
+1) It could use a delete video feature, which allows removal of the video from the list once said content has been consumed. 
+2) A robust testing of the app to confirm that cross-user access across the app is managed correctly, disabling one user from having access to another user's data. 
  ---
  
- Have fun testing and improving it! 😎
+ Hope you enjoy our app! 😎
 
 
