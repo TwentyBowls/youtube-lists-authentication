@@ -59,6 +59,7 @@ input {
     font-size: 1.2rem;
     padding: 0.6em 0.5em;
     background: #1c1e22;
+    color:white;
     font-family: 'Roboto', sans-serif;
     border: 0;
     border-top-left-radius: 0.5em;
@@ -273,3 +274,57 @@ hr {
     flex-direction: column;
     justify-content: center;
 }
+
+/* index styles start */
+
+#index-page{
+    margin: 100px;
+    text-align: center;
+    
+    /* border: 1px solid #454a56 */
+}
+#index-page h1{
+    margin: 100px;
+    
+}
+#index-page a {
+    text-decoration: none;
+}
+
+.button:hover{
+    background-color: rgba(144,144,144,0.219);
+    color: #9198ac;
+}
+/* a href class button */
+.button{
+    margin: 10px;
+    background: #262a31;
+    border: 1px solid #2a2e34;
+    padding: 0.6em 1.6em;
+    font-family: 'Roboto', sans-serif;  
+    font-size: 1.2rem;
+    color:  #aeb6ca;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+/* login and sign up page */
+
+.middle-Heading{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.login-Signup{
+    height: 300px;
+    width:300px;
+    text-align: center;
+    display:block;
+    margin:0 auto;
+    margin-top: 10px;
+}
+
+.login-Signup input {
+    margin-top: 10px;
+}
+
